@@ -14,7 +14,7 @@ const list = reactive([
       event: false,
       classIcon: "far fa-user-plus",
       title: "Подключение продавца",
-      href: ""
+      href: "/" // ""
     }
   },
   {
@@ -23,7 +23,7 @@ const list = reactive([
       event: false,
       classIcon: "fas fa-plus",
       title: "Редактировать",
-      href: ""
+      href: "/" // ""
     }
   },
   {
@@ -32,7 +32,7 @@ const list = reactive([
       event: false,
       classIcon: "fas fa-seller",
       title: "Аккаунт",
-      href: ""
+      href: "/" // ""
     },
     subMenu: [
       {
@@ -59,7 +59,7 @@ const list = reactive([
           event: false,
           classIcon: "fas fa-trash-alt",
           title: "Удалить аккаунт",
-          href: "/manager?section=delete-accaunt"
+          href: "/manager?section=delete-account" // "/manager?section=delete-accaunt"
         }
       }
     ]
@@ -70,7 +70,7 @@ const list = reactive([
       event: false,
       classIcon: "fas fa-piggy-bank",
       title: "Финансы",
-      href: ""
+      href: "/" // ""
     },
     subMenu: [
       {
@@ -79,7 +79,7 @@ const list = reactive([
           event: false,
           classIcon: "fas fa-money-bill-alt",
           title: "Заказы клиентов",
-          href: ""
+          href: "/manager?section=client-orders" // ""
         }
       },
       {
@@ -97,7 +97,7 @@ const list = reactive([
           event: false,
           classIcon: "fas fa-receipt",
           title: "Транзакции эквайринга",
-          href: "/manager?section=transactions"
+          href: "/manager/transactions" // "/manager?section=transactions"
         }
       }
     ]
@@ -117,11 +117,11 @@ const list = reactive([
       event: false,
       classIcon: "far fa-hdd",
       title: "Диск",
-      href: "/manager?section=photosession"
+      href: "/manager?section=disc" // "/manager?section=photosession"
     }
   },
   {
-    id: "disc",
+    id: "prices", // "disc",
     link: {
       event: false,
       classIcon: "far fa-money-check",
@@ -135,7 +135,7 @@ const list = reactive([
       event: false,
       classIcon: "far fa-dolly-flatbed-alt",
       title: "Выгрузки",
-      href: "/manager?section=unload"
+      href: "/lk/unload" // "/manager?section=unload"
     }
   },
   {
@@ -144,7 +144,7 @@ const list = reactive([
       event: false,
       classIcon: "far fa-handshake",
       title: "Партнерка",
-      href: ""
+      href: "/" // ""
     },
     subMenu: [
       {
@@ -153,7 +153,7 @@ const list = reactive([
           event: false,
           classIcon: "far fa-users",
           title: "Приведенные продавцы",
-          href: ""
+          href: "/manager?section=brought-in-sellers" // ""
         }
       },
       {
@@ -162,7 +162,7 @@ const list = reactive([
           event: false,
           classIcon: "fa-light fa-circle-info",
           title: "О партнерке",
-          href: "/manager?section=payout"
+          href: "/manager?section=info" // "/manager?section=payout"
         }
       }
     ]
@@ -173,7 +173,7 @@ const list = reactive([
       event: false,
       classIcon: "fa-regular fa-question",
       title: "Помощь",
-      href: ""
+      href: "/" // ""
     },
     subMenu: [
       {
