@@ -23,18 +23,19 @@ const props = defineProps({
   }
 });
 
-defineEmits(["closeUnloadingInfo"]);
+const emits = defineEmits(["closeUnloadingInfo", "copiedLink"]);
 
 const copyToClipboard = () => {
   navigator.clipboard
     .writeText(props.unloading.link)
-    .then(() => {})
+    .then(() => {
+      emits("copiedLink");
+    })
     .catch(() => {});
 };
 </script>
 
 <style lang="scss">
-
 .unloading-info {
   &__wrapper {
     display: flex;

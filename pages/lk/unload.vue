@@ -1,12 +1,15 @@
 <template>
   <main class="unload">
     <div class="unload__wrapper">
+      <div id="MarberyNotificationCenter" class="unload__notification" v-if="isLinkCopied">
+        Ссылка скопирована в буфер обмена
+      </div>
       <div class="unload__info-block">
         <InformationBlock :page-information="pageInformation" />
       </div>
 
       <div v-if="isUnloadingOpen" class="unload__info">
-        <UnloadInfo :unloading="chosenUnloading" @close-unloading-info="onCloseUnloadingInfo" />
+        <UnloadInfo :unloading="chosenUnloading" @close-unloading-info="onCloseUnloadingInfo" @copied-link="showThenHideNotification"/>
       </div>
       <div v-else class="notice unload__notice" data-color="light-purple">
         Для того, чтобы просмотреть информацию о <span class="text-bold">выгрузке</span>, а также её скачать, нажмите на
@@ -56,12 +59,22 @@ const openUnload = async id => {
 };
 
 const onCloseUnloadingInfo = () => (isUnloadingOpen.value = false);
+
+const isLinkCopied = ref(false);
+const showThenHideNotification = () => {
+  isLinkCopied.value = true;
+  setTimeout(() => (isLinkCopied.value = false), 3000);
+};
 </script>
 
 <style lang="scss">
 .unload {
   font-size: 14px;
   line-height: 1.2;
+
+  &__notification {
+    bottom: 10%;
+  }
 
   &__info-block {
     grid-area: a;
