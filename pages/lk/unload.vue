@@ -1,7 +1,7 @@
 <template>
   <main class="unload">
     <div class="unload__wrapper">
-      <div id="MarberyNotificationCenter" class="unload__notification" v-if="isLinkCopied">
+      <div v-if="isLinkCopied" id="MarberyNotificationCenter" class="unload__notification">
         Ссылка скопирована в буфер обмена
       </div>
       <div class="unload__info-block">
