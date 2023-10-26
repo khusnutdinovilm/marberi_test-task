@@ -37,6 +37,12 @@ export default defineNuxtConfig({
     },
   },
 
+  modules: ['@pinia/nuxt'],
+
+  pinia: {
+    storesDirs: ['./stores/**']
+  },
+
   css: ['~/assets/styles/main.scss'],
 
   vite: {
