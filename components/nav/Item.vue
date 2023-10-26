@@ -6,6 +6,7 @@
       v-bind="item.link.attrs"
       :class="{ 'nav__item-link_sub-menu': isSubMenu }"
       :target="item.link.attrs?.target"
+      @click.prevent="store.closeNavbar()"
     >
       <span v-if="item.link.classIcon" class="nav__icon">
         <i :class="item.link.classIcon" />
@@ -26,7 +27,12 @@
     <div v-if="isSubMenu" class="nav__sub-menu" :data-active="isSubmenuOpen ? 'active' : ''">
       <ul class="nav__lists">
         <li v-for="subItem of item.subMenu" :key="subItem.id" class="nav__item nav__item_pd">
-          <nuxt-link class="nav__item-link nav__item-link_sub" :to="subItem.link.href" :target="subItem.link.attrs?.target">
+          <nuxt-link
+            class="nav__item-link nav__item-link_sub"
+            :to="subItem.link.href"
+            :target="subItem.link.attrs?.target"
+            @click.prevent="closeNavbarAndSubmenu"
+          >
             <span class="nav__icon">
               <i :class="subItem.link.classIcon" />
             </span>
@@ -43,7 +49,13 @@
 
 <script setup>
 import { ref } from "vue";
+import { useStore } from "~/stores/store";
 
+const store = useStore();
+const closeNavbarAndSubmenu = () => {
+  store.toggleNavbar();
+  isSubmenuOpen.value = false;
+};
 const props = defineProps({
   item: {
     type: Object,
