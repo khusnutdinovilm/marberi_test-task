@@ -41,7 +41,7 @@ const list = reactive([
           event: false,
           classIcon: "far fa-user-plus",
           title: "Подключение продавца",
-          href: "seller"
+          href: "/seller" // "seller"
         }
       },
       {
