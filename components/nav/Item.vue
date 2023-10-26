@@ -6,7 +6,7 @@
       v-bind="item.link.attrs"
       :class="{ 'nav__item-link_sub-menu': isSubMenu }"
       :target="item.link.attrs?.target"
-      @click.prevent="store.closeNavbar()"
+      @click.prevent="goAndCloseNavbar"
     >
       <span v-if="item.link.classIcon" class="nav__icon">
         <i :class="item.link.classIcon" />
@@ -66,6 +66,9 @@ const props = defineProps({
     default: true
   }
 });
+const goAndCloseNavbar = () => {
+  if (!props.item.subMenu) store.closeNavbar();
+};
 
 const isSubMenu = computed(() => props.item?.subMenu?.length);
 
